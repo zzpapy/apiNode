@@ -1,0 +1,26 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+  <h1>{{title}}</h1>
+  <p>Welcome to {{title}}</p>
+  <div>
+    <form action="/" method="get" id="formulaireConnec">
+      <input type="text" name="title">
+      <input type="submit">
+    </form>
+    {% for result in res %}
+    <p>
+        {{result.title }}
+        <img src="{{result.artist.picture_small }}" alt="">
+        <div>
+          <audio controls>
+            <source src="{{result.preview }}" type="audio/mpeg">
+          Your browser does not support the audio element.
+          </audio>
+        </div>
+        
+    </p>
+      
+    {% endfor %}
+  </div>
+{% endblock %}
