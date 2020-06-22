@@ -10,19 +10,12 @@
     </form>
   </div>
     <div class="flex">
+    <a href="/artiste?id={{res[0].artist.id}}">{{res[0].artist.name}}</a>
       {% for result in res %}
       <div>
-        <div>
-          {% for album in result %}
-          <a href="/album?id={{album.id}}">
-
-            <img src="{{album.cover_medium }}" alt="">
-          </a>
-          {% endfor %}
-        </div>
+        
         <a href="{{result.link}}"> {{result.title }}</a>
-       
-        <img src="{{result.artist.picture_small }}" alt="">
+        
         <div>
           <audio controls>
             <source src="{{result.preview }}" type="audio/mpeg">
