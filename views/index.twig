@@ -2,23 +2,16 @@
 
 {% block body %}
   <h1>{{title}}</h1>
-  <p>Welcome to {{title}}</p>
-  <div>
-    <form action="/" method="get" id="formulaireConnec">
-      <input type="text" name="title">
-      <input type="submit">
-    </form>
-  </div>
     <div class="flex">
       {% for result in res %}
       <div>
+        <h2>{{result.album.title}}</h2>
         <div>
-          {% for album in result %}
-          <a href="/album?id={{album.id}}">
+         
+          <a href="/album?id={{result.album.id}}&title={{result.album.title}}">
 
-            <img src="{{album.cover_medium }}" alt="">
+            <img src="{{result.album.cover_medium }}" alt="">
           </a>
-          {% endfor %}
         </div>
         <a href="{{result.link}}"> {{result.title }}</a>
        

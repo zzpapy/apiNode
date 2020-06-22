@@ -2,16 +2,11 @@
 
 {% block body %}
   <h1>{{title}}</h1>
-  <p>Welcome to {{title}}</p>
-  <div>
-    <form action="/" method="get" id="formulaireConnec">
-      <input type="text" name="title">
-      <input type="submit">
-    </form>
-  </div>
+    <h2>{{album}}</h2>
     <div class="flex">
     <a href="/artiste?id={{res[0].artist.id}}">{{res[0].artist.name}}</a>
       {% for result in res %}
+      
       <div>
         
         <a href="{{result.link}}"> {{result.title }}</a>

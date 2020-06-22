@@ -4,6 +4,7 @@ var unirest = require("unirest");
 
 /* GET home page. */
 router.get('/', function(req, resp, next) {
+	
 	var request = unirest("GET", "https://deezerdevs-deezer.p.rapidapi.com/search?limit=200");
 	
 	search = req.query.title
@@ -29,12 +30,13 @@ request.end(function (res) {
 	}
 	console.log(tab.length)
 	resp.render('index', { 
-	  title: 'Express',
+	  title: 'Jouer avec deezer App',
 	  res : tab
 	 });
 });
 });
 router.get('/album', function(req, resp, next) {
+	album_title = req.query.title
 	id = req.query.id
 	var request = unirest("GET", "https://api.deezer.com/album/"+id+"/tracks");
 	
@@ -55,9 +57,10 @@ request.end(function (res) {
 			tab.push(element)			
 		}
 	}
-	console.log(tab.length)
+	console.log(album_title)
 	resp.render('album', { 
-	  title: 'Express',
+	  title: 'Détail album',
+	  album: album_title,
 	  res : tab
 	 });
 });
@@ -85,7 +88,7 @@ request.end(function (res) {
 	}
 	console.log(tab.length)
 	resp.render('album', { 
-	  title: 'Express',
+	  title: 'chansons de l\'artiste',
 	  res : tab
 	 });
 });
