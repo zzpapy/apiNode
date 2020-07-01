@@ -1,0 +1,24 @@
+1 
+SELECT COUNT(*) as nb FROM `stagiaire` 
+2
+SELECT MIN(note),MAX(note) FROM noter
+
+
+3
+SELECT AVG(note) FROM noter INNER JOIN stagiaire ON noter.idStag=stagiaire.id GROUP BY stagiaire.id;
+
+SELECT AVG(note) FROM noter GROUP BY (id_stag), (id_mat)
+
+SELECT stagiaire.id, nom, prenom, libelleMat, coef, AVG(note) as Moy
+FROM noter n, matiere m, stagiaire WHERE n.idMat = m.id AND n.idStag = stagiaire.id
+GROUP by stagiaire.id, nom, prenom, libelleMat, coef
+
+4
+SELECT m.libelleMat, AVG(note) FROM noter n , matiere m GROUP BY libelleMat
+
+Vue :
+
+CREATE VIEW view_name AS
+SELECT column1, column2, ...
+FROM table_name
+WHERE condition;
